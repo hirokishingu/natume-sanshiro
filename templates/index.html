@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>夏目漱石の三四郎の中で関係性の高い単語を引っ張るよ</h1>
+
+<div class="form">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div style="height: 50px;"></div>
+				<form action="/post" method="post" class="form-inline">
+					<label for="name">単語</label>
+					<input type="text" class="form-control" id="name" name="name" placeholder="三四郎">
+					<button type="submit" class="btn btn-primary" style="margin: 10px;">送信する</button>
+				</form>
+				<h4>
+					{% if word %}
+					前回入れた単語は： {{ word }} です
+					{% else %}
+					{% endif %}
+				</h4>
+				<h4>
+					{% if warn %}
+					{{ warn }}
+					{% else %}
+					{% endif %}
+				</h4>
+				<p class="lead">
+					{% if name %}
+					{{ name }}
+					{% else %}
+					単語をいれてね
+					{% endif %}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
